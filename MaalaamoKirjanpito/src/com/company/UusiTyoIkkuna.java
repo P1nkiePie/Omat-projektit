@@ -200,6 +200,11 @@ public class UusiTyoIkkuna {
         TakaPuskuri.setOnAction(event -> {
             if (TakaPuskuri.isSelected()) osat_lista.add(TakaPuskuri.getText());
         });
+        
+        CheckBox Konepelti = new CheckBox("Konepelti");
+        TakaPuskuri.setOnAction(event -> {
+            if (Konepelti.isSelected()) osat_lista.add(Konepelti.getText());
+        });
 
         //asetetaan CheckBoxit Gridpaneen korjattavat_osat
         korjattavat_osat.add(VasenEtuLokasuoja, 0, 5);
@@ -216,6 +221,7 @@ public class UusiTyoIkkuna {
         korjattavat_osat.add(Katto, 40, 12);
         korjattavat_osat.add(Takaluukku, 40, 19);
         korjattavat_osat.add(TakaPuskuri, 40, 26);
+        korjattavat_osat.add(Konepelti, 40, 33);
 
         //Tallenna ja peruuta painikkeille BorderPane
         BorderPane painike_pane = new BorderPane();
