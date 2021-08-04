@@ -99,17 +99,10 @@ public class Main extends Application{
         //luodaan etsi hakukenttä
         TextField etsi = new TextField();
         etsi.setPromptText("Etsi rek");
-        String haettava = etsi.getText();
 
         //etsi hakukentän toiminto
         etsi.setOnAction(e -> {
-            int p=0;
-            while (p<lista_toista.getLista().size()) {
-                if (lista_toista.getLista().get(p).getRek().contains(haettava)) {
-                    textArea.setText(TyonTiedot.tyonTiedot(lista_toista.getLista().get(p)));
-                }
-                p++;
-            }
+            textArea.setText(lista_toista.hae_listasta(etsi.getText()));
         });
 
         //asetetaan etsi hakukenttä hboxiin
