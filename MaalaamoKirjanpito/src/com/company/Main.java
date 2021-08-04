@@ -77,8 +77,7 @@ public class Main extends Application{
             button.setText(lista_toista.getLista().get(i).getRek() + " " + lista_toista.getLista().get(i).getMerkki() +
                     " " + lista_toista.getLista().get(i).getMalli());
             int finalI = i;
-            button.setOnAction(e -> {
-                textArea.setText(TyonTiedot.tyonTiedot(lista_toista.getLista().get(finalI)));
+            button.setOnAction(e -> textArea.setText(TyonTiedot.tyonTiedot(lista_toista.getLista().get(finalI))));
             });
             vbox.getChildren().add(button);
             i++;
@@ -97,9 +96,7 @@ public class Main extends Application{
         etsi.setPromptText("Etsi rek");
 
         //etsi hakukentän toiminto
-        etsi.setOnAction(e -> {
-            textArea.setText(lista_toista.hae_listasta(etsi.getText()));
-        });
+        etsi.setOnAction(e -> textArea.setText(lista_toista.hae_listasta(etsi.getText())));
 
         //asetetaan etsi hakukenttä hboxiin
         hakukentta.getChildren().add(etsi);
