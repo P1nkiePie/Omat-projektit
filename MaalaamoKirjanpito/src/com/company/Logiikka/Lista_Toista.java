@@ -43,4 +43,13 @@ public class Lista_Toista {
     public ArrayList<Auto> getLista() {
         return this.lista;
     }
+    
+    public String hae_listasta(String haettava) {
+        for(int i=0; i<this.getLista().size(); i++) {
+            if (lista.get(i).getRek().contains(haettava)) {
+                return TyonTiedot.tyonTiedot(lista.get(i));
+            }
+        }
+        return null;
+    }
 }
