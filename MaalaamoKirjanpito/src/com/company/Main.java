@@ -38,9 +38,9 @@ public class Main extends Application{
         //asetetaan teksi alue root panen oikeaan reunaan
         root.setRight(textArea);
         //Hbox etsi hakukentälle
-        HBox hakukenttä = new HBox();
+        HBox hakukentta = new HBox();
         //hbox asetetaan root panen yläreunaan
-        root.setTop(hakukenttä);
+        root.setTop(hakukentta);
 
         Lista_Toista lista_toista = new Lista_Toista();
         lista_toista.paivita_lista();
@@ -104,7 +104,7 @@ public class Main extends Application{
         });
 
         //asetetaan etsi hakukenttä hboxiin
-        hakukenttä.getChildren().add(etsi);
+        hakukentta.getChildren().add(etsi);
 
         //asetetaan stagelle scene
         stage.setScene(scene);
