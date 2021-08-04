@@ -72,14 +72,12 @@ public class Main extends Application{
         vbox.setSpacing(5);
 
         //tulostetaan rek, merkki, malli painikkeisiin
-        ArrayList<Button> painikkeet = new ArrayList<>();
         int i=0;
         while (i<lista_toista.getLista().size()) {
             Button button = new Button();
             button.setMaxSize(400, 20);
             button.setText(lista_toista.getLista().get(i).getRek() + " " + lista_toista.getLista().get(i).getMerkki() +
                     " " + lista_toista.getLista().get(i).getMalli());
-            painikkeet.add(button);
             int finalI = i;
             button.setOnAction(e -> {
                 textArea.setText(TyonTiedot.tyonTiedot(lista_toista.getLista().get(finalI)));
