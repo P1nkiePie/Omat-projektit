@@ -21,21 +21,40 @@ public class Lista_Toista {
                 String rivi;
                 rivi = lukija.nextLine();
                 String[] palat = rivi.split(" ");
-                String asiakas = palat[3] + " " + palat[4];
-                auto.setRek(palat[0]);
-                auto.setMerkki(palat[1]);
-                auto.setMalli(palat[2]);
-                auto.setAsiakas(asiakas);
-                auto.setPuh_num(palat[5]);
-                auto.setVakuutus(palat[6]);
-                auto.setPaivamaara(LocalDate.parse(palat[7]));
-                auto.setHinta(palat[8]);
-                StringBuilder korjattavat_osat = new StringBuilder();
-                for (int i=9; i<palat.length; i++) {
-                    korjattavat_osat.append(palat[i]).append(" ");
-                }
-                auto.setKorjattava_osat(korjattavat_osat.toString());
+                
+                if (palat[4].matches(".*\\d.*")) {
+                    String asiakas = palat[3];
+                    auto.setRek(palat[0]);
+                    auto.setMerkki(palat[1]);
+                    auto.setMalli(palat[2]);
+                    auto.setAsiakas(asiakas);
+                    auto.setPuh_num(palat[4]);
+                    auto.setVakuutus(palat[5]);
+                    auto.setPaivamaara(LocalDate.parse(palat[6]));
+                    auto.setHinta(palat[7]);
+                    StringBuilder korjattavat_osat = new StringBuilder();
+                    for (int i=9; i<palat.length; i++) {
+                        korjattavat_osat.append(palat[i]).append(" ");
+                    }
+                    auto.setKorjattava_osat(korjattavat_osat.toString());
                     this.lista.add(auto);
+                } else {
+                    String asiakas = palat[3] + " " + palat[4];
+                    auto.setRek(palat[0]);
+                    auto.setMerkki(palat[1]);
+                    auto.setMalli(palat[2]);
+                    auto.setAsiakas(asiakas);
+                    auto.setPuh_num(palat[5]);
+                    auto.setVakuutus(palat[6]);
+                    auto.setPaivamaara(LocalDate.parse(palat[7]));
+                    auto.setHinta(palat[8]);
+                    StringBuilder korjattavat_osat = new StringBuilder();
+                    for (int i = 9; i < palat.length; i++) {
+                        korjattavat_osat.append(palat[i]).append(" ");
+                    }
+                    auto.setKorjattava_osat(korjattavat_osat.toString());
+                    this.lista.add(auto);
+                }
             }
         }
     }
