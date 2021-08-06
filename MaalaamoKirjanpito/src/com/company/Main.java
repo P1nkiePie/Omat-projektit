@@ -26,7 +26,7 @@ public class Main extends Application{
         BorderPane root = new BorderPane();
         Insets insets = new Insets(0, 200, 0, 0);
         //luodaan BorderPane sulje painikkeelle
-        BorderPane sulje_painike = new BorderPane();
+        BorderPane ala_painikkeet = new BorderPane();
         //luodaan Scene johon asetetaan root BorderPane
         Scene scene = new Scene(root);
         //Teksi alue työn tietoja varten
@@ -48,9 +48,9 @@ public class Main extends Application{
         //sulje painike sulkee ohjelman
         sulje.setOnAction(e -> stage.close());
         //asetetaan sulje painike sulje_painike Panen oikeaan reunaan
-        sulje_painike.setRight(sulje);
+        ala_painikkeet.setRight(sulje);
         //asetetaan sulje_painike Pane root Panen alareunaan
-        root.setBottom(sulje_painike);
+        root.setBottom(ala_painikkeet);
 
         //luodaan uusi_työ painike
         Button uusi_tyo = new Button("Uusi työ");
@@ -70,6 +70,7 @@ public class Main extends Application{
         vbox.setSpacing(5);
 
         //tulostetaan rek, merkki, malli painikkeisiin
+        ArrayList painikkeet = new ArrayList<>();
         int i=0;
         while (i<lista_toista.getLista().size()) {
             Button button = new Button();
@@ -78,7 +79,7 @@ public class Main extends Application{
                     " " + lista_toista.getLista().get(i).getMalli());
             int finalI = i;
             button.setOnAction(e -> textArea.setText(TyonTiedot.tyonTiedot(lista_toista.getLista().get(finalI))));
-            });
+            painikkeet.add(button);
             vbox.getChildren().add(button);
             i++;
         }
@@ -100,6 +101,24 @@ public class Main extends Application{
 
         //asetetaan etsi hakukenttä hboxiin
         hakukentta.getChildren().add(etsi);
+        
+        //Päivitä painike
+        Button paivita = new Button("Päivitä");
+        //Päivitä painike päivittää työt listan
+        paivita.setOnAction(e -> {
+            Button button = new Button();
+            button.setMaxSize(400, 20);
+            for (int p=0; p<lista_toista.getLista().size(); p++) {
+                if (p==lista_toista.getLista().size()-1) {
+                    button.setText(lista_toista.getLista().get(p).getRek() + " " + lista_toista.getLista().get(p).getMerkki() +
+                            " " + lista_toista.getLista().get(p).getMalli());
+                }
+                int finalP = p;
+                button.setOnAction(k -> textArea.setText(TyonTiedot.tyonTiedot(lista_toista.getLista().get(finalP))));
+            }
+                vbox.getChildren().add(button);
+        });
+        ala_painikkeet.setRight(paivita);
 
         //asetetaan stagelle scene
         stage.setScene(scene);
