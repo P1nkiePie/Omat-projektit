@@ -1,4 +1,3 @@
-CJV-590 VW Passat Miro Viljanen 9238479234 ei 2021-08-06 100€ Katto 
 ABC-123 Audi A3 Larizza Saari 723481123 OP 2021-08-03 150€ Etupuskuri Takaluukku 
 MOB-567 Skoda Octavia Jari Tissari 23446523 IF 2021-08-17 300€ Etupuskuri TakaPuskuri 
 HGF-521 Opel Vectra Jarmo Lampi 29384634 ei 2021-08-16 600€ Etupuskuri VasenEtuLokasuoja 
